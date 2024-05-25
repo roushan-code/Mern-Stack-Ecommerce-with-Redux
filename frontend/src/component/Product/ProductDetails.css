@@ -32,11 +32,11 @@
   height: 200px;
 }
 .css-ohwg9z{
-    width: 20vw;
+  width: 26vw;
 }
 .CarouselImage{
-    width: 20vw;
-    max-height: 26vw;
+  max-width: 35vw;
+  max-height: 26vw;
 }
 .detailsBlock-1>h2{
     color: rgb(54,54,54);
