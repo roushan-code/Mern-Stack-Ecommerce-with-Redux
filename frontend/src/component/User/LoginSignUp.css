@@ -11,6 +11,16 @@
   left: 0;
 }
 
+.para{
+  font: 400 0.9rem "Roboto";
+  color: rgba(0, 0, 0, 0.753);
+  margin: 5px 0;
+  >span{
+    color: red;
+  }
+}
+
+
 .LoginSignUpBox {
   background-color: white;
   width: 25vw;

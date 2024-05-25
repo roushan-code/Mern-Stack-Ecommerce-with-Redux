@@ -20,14 +20,7 @@
   text-align: center;
 }
 
-.para{
-  font: 400 0.9rem "Roboto";
-  color: rgba(0, 0, 0, 0.753);
-  margin: 10px 0;
-  >span{
-    color: red;
-  }
-}
+
 .productListTable {
   background-color: white;
   border: none !important;

@@ -111,7 +111,7 @@ const ProductDetails = () => {
             {loading ? (<Loader />) : (<Fragment>
                 <div className="ProductDetails">
                     <div>
-                        <Carousel>
+                        <Carousel interval={1500} swipe={true} >
                             {product && product.images &&
                                 product.images.map((item, i) => (
                                     <img

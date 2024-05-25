@@ -96,6 +96,10 @@
   .profileContainer {
     flex-direction: column;
   }
+  .profileContainer>div {
+    flex-direction: column;
+    height: 40vh;
+  }
 
   .profileContainer > div:first-child > h1 {
     font: 500 3.2vmax "Roboto";
@@ -110,6 +114,7 @@
   .profileContainer > div:last-child {
     text-align: center;
     align-items: center;
+    padding: 9vmax 5vmax;
   }
 
   .profileContainer > div:last-child > div > h4 {

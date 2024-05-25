@@ -43,8 +43,8 @@ const UpdateProduct = () => {
   const categories = [
     "Laptop",
     "Footwear",
-    "Bottom",
-    "Tops",
+    "Electronics",
+    "Watch",
     "Attire",
     "Camera",
     "SmartPhones",

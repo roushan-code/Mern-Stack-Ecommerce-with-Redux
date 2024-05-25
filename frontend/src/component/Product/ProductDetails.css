@@ -209,7 +209,7 @@
         width: 30vw;
     }
     .CarouselImage{
-        width: 30vw;
+        max-width: 30vw;
     }
   }
   @media screen and (max-width: 750px) {
@@ -217,7 +217,7 @@
         width: 35vw;
     }
     .CarouselImage{
-        width: 35vw;
+        max-width: 35vw;
     }
   }
   
@@ -226,7 +226,7 @@
         width: 55vw;
     }
     .CarouselImage{
-        width: 55vw;
+        max-width: 55vw;
         max-height: 70vw;
     }
     .ProductDetails {

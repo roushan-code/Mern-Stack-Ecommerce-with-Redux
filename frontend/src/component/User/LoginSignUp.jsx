@@ -186,6 +186,7 @@ const LoginSignUp = () => {
                     onChange={registerDataChange}
                   />
                 </div>
+                <p className="para">Password must be at least 8 charactor <span>*</span></p>
                 <div className="signUpPassword">
                   <LockOpenIcon />
                   <input
@@ -197,7 +198,7 @@ const LoginSignUp = () => {
                     onChange={registerDataChange}
                   />
                 </div>
-                <p className="para">Image Size must be less than 50kb <span>*</span></p>
+                <p className="para">Image Size must be less than 700kb <span>*</span></p>
                 <div id="registerImage">
                   <img src={avatarPreview} alt="Avatar Preview" />
                   <input
