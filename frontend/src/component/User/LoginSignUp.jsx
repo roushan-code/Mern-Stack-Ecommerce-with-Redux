@@ -47,6 +47,7 @@ const LoginSignUp = () => {
 
   const registerSubmit = (e) => {
     e.preventDefault();
+
     if(avatar === "/static/media/Profile.697fdcd21f6d157b9073.png"){
       toast.error("Please Upload Profile Image")
     }else{
@@ -81,7 +82,20 @@ const LoginSignUp = () => {
       };
 
       reader.readAsDataURL(e.target.files[0]);
+      const selectedFile = e.target.files[0];
 
+      
+        if (selectedFile) {
+            const fileSize = selectedFile.size; // File size in bytes
+            const maxFileSize = 700000; // 700kb in bytes
+
+            if (fileSize > maxFileSize) {
+                toast.error('File size exceeds the maximum limit of 700 kb.');
+            }else{
+              setAvatarPreview(null);
+              setAvatar(null)
+            }
+        }
       
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
