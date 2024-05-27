@@ -47,16 +47,20 @@ const LoginSignUp = () => {
 
   const registerSubmit = (e) => {
     e.preventDefault();
-    
-    const myForm = new FormData();
+    if(avatar === "/static/media/Profile.697fdcd21f6d157b9073.png"){
+      toast.error("Please Upload Profile Image")
+    }else{
+      const myForm = new FormData();
+  
+      myForm.set("name", name);
+      myForm.set("email", email);
+      myForm.set("password", password);
+      myForm.set("avatar", avatar);
+      
+      
+      dispatch(register(myForm));
 
-    myForm.set("name", name);
-    myForm.set("email", email);
-    myForm.set("password", password);
-    myForm.set("avatar", avatar);
-    
-    
-    dispatch(register(myForm));
+    }
     // console.log("you are register")
   };
 
