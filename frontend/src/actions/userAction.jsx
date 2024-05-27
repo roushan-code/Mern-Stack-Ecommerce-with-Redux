@@ -45,7 +45,7 @@ export const login = (email, password) => async (dispatch) => {
     try {
         dispatch({ type: LOGIN_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         
     };
 
@@ -67,7 +67,7 @@ export const register = (formData) => async (dispatch) => {
     try {
         dispatch({ type: REGISTER_USER_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
        
     };
 
@@ -124,7 +124,7 @@ export const updateProfile = (userData) => async (dispatch) => {
         dispatch({ type: UPDATE_PROFILE_REQUEST });
         // console.log(userData);
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         withCredentials: true,
     };
         
@@ -148,7 +148,7 @@ export const updatePassword = (passwords) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_PASSWORD_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         
     };
 
@@ -172,7 +172,7 @@ export const forgotPassword = (email) => async (dispatch) => {
     try {
         dispatch({ type: FORGOT_PASSWORD_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         
      };
 
@@ -192,7 +192,7 @@ export const resetPassword = (token, passwords) => async (dispatch) => {
     try {
         dispatch({ type: RESET_PASSWORD_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         withCredentials: true,
     };
 
@@ -240,7 +240,7 @@ export const updateUser = (id, userData) => async (dispatch) => {
     try {
         dispatch({ type: UPDATE_USER_REQUEST });
 
-        const config = { headers: { "Content-Type": "multipart/form-data" },
+        const config = { headers: { "Content-Type": "application/json" },
         
     };
 
