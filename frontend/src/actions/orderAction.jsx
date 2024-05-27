@@ -30,7 +30,7 @@ export const createOrder = (order) => async (dispatch) => {
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
         
       },
     };
@@ -101,7 +101,7 @@ export const updateOrder = (id, order) => async (dispatch) => {
 
     const config = {
       headers: {
-        "Content-Type": "application/json",
+        "Content-Type": "multipart/form-data",
         
       },
     };
