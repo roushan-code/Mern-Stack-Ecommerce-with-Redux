@@ -91,9 +91,6 @@ const LoginSignUp = () => {
 
             if (fileSize > maxFileSize) {
                 toast.error('File size exceeds the maximum limit of 700 kb.');
-            }else{
-              setAvatarPreview(null);
-              setAvatar(null)
             }
         }
       
