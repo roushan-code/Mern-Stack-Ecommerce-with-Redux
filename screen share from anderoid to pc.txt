@@ -1,0 +1,23 @@
+Select Start  > Settings  > System  > Projecting to this PC .
+
+Under Add the “Wireless Display” optional feature to project to this PC, select Optional features. 
+
+Select Add a feature, then enter “wireless display.” 
+
+Select the check box next to Wireless Display from the list of results, then select Install. 
+
+After “Wireless Display” is installed, manage your projecting preferences on the Projecting to this PC page in Settings. 
+
+// Set Setting in Projecting to PC
+
+Some Windows and Android devices can project to this PC When you say it's OK
+set -> Available EveryWhere
+
+Ask to project to this PC
+set -> First time only
+
+Require PIN for pairing
+set ->Never
+
+This PC can be discovered for projection only when it's plugged into a power source
+Off
