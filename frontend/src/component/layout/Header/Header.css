@@ -107,9 +107,9 @@
     }
     
     :root {
-      --bar-width: 60px;
-      --bar-height: 7px;
-      --hamburger-gap: 11px;
+      --bar-width: 40px;
+      --bar-height: 4px;
+      --hamburger-gap: 7px;
       --foreground: tomato;
       --background: white;
       --hamburger-margin: 8px;
