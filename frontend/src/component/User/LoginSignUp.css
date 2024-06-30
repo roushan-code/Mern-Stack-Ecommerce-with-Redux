@@ -181,6 +181,9 @@
   .signUpForm {
     padding: 5vmax;
   }
+  .loginForm > div > span, .signUpForm > div > span{
+    transform: translateX(73vw) translateY(0.2vw);
+  }
   .loginForm > div > input,
   .signUpForm > div > input {
     padding: 2.5vmax 5vmax;
