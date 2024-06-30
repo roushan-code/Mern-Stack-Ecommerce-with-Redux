@@ -1,7 +1,6 @@
 .CartItemCard {
     display: flex;
     padding: 1vmax;
-    
     align-items: flex-start;
     box-sizing: border-box;
   }

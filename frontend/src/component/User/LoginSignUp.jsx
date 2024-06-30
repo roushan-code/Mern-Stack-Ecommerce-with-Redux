@@ -5,6 +5,8 @@ import Loader from "../layout/Loader/loader";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import LockOpenIcon from '@mui/icons-material/LockOpen';
+import VisibilityIcon from '@mui/icons-material/Visibility';
+import VisibilityOffIcon from '@mui/icons-material/VisibilityOff';
 import FaceIcon from '@mui/icons-material/Face';
 import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
@@ -23,6 +25,32 @@ const LoginSignUp = () => {
   const loginTab = useRef(null);
   const registerTab = useRef(null);
   const switcherTab = useRef(null);
+  const [toggleVisibility, setToggleVisibility] = useState(true);
+  let spanVisibilityRef = useRef(null);
+  let spanVisibilityOffRef = useRef(null);
+  let spanVisibilityRefsign = useRef(null);
+  let spanVisibilityOffRefsign = useRef(null);
+  let passwordRef = useRef(null);
+  let passwordRefsign = useRef(null);
+
+  function toggleEye(){
+    if(toggleVisibility){
+      spanVisibilityRef.current.style.display = "block"
+      spanVisibilityOffRef.current.style.display = "none"
+      spanVisibilityRefsign.current.style.display = "block"
+      spanVisibilityOffRefsign.current.style.display = "none"
+      passwordRef.current.type = "text"
+      passwordRefsign.current.type = "text"
+    }else{
+      spanVisibilityRef.current.style.display = "none"
+      spanVisibilityOffRef.current.style.display = "block"
+      spanVisibilityRefsign.current.style.display = "none"
+      spanVisibilityOffRefsign.current.style.display = "block"
+      passwordRef.current.type = "password"
+      passwordRefsign.current.type = "password"
+    }
+    setToggleVisibility(!toggleVisibility)
+  }
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
@@ -168,7 +196,14 @@ const LoginSignUp = () => {
                     required
                     value={loginPassword}
                     onChange={(e) => setLoginPassword(e.target.value)}
+                    ref={passwordRef}
                   />
+                  <span className="visible" onClick={toggleEye} ref={spanVisibilityRef}>
+                    <VisibilityIcon />
+                    </span>
+                  <span className="invisible" onClick={toggleEye} ref={spanVisibilityOffRef}>
+                    <VisibilityOffIcon />
+                    </span>
                 </div>
                 <Link to="/password/forgot">Forget Password ?</Link>
                 <input type="submit" value="Login" className="loginBtn" />
@@ -211,7 +246,14 @@ const LoginSignUp = () => {
                     name="password"
                     value={password}
                     onChange={registerDataChange}
+                    ref={passwordRefsign}
                   />
+                  <span className="visible" onClick={toggleEye} ref={spanVisibilityRefsign}>
+                    <VisibilityIcon />
+                    </span>
+                  <span className="invisible" onClick={toggleEye} ref={spanVisibilityOffRefsign}>
+                    <VisibilityOffIcon />
+                    </span>
                 </div>
                 <p className="para">Image Size must be less than 700kb <span>*</span></p>
                 <div id="registerImage">

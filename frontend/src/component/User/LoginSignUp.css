@@ -20,6 +20,20 @@
   }
 }
 
+.loginForm > div > span, .signUpForm > div > span{
+  position: absolute;
+  transform: translateX(19vmax) translateY(0.2vmax);
+  font-size: 1.6vmax;
+  color: rgba(0, 0, 0, 0.623);
+  cursor: pointer;
+}
+
+.visible{
+  display: none;
+}
+.invisible{
+  display: block;
+}
 
 .LoginSignUpBox {
   background-color: white;

@@ -75,110 +75,122 @@ function App() {
         <Route exact path="/contact" element={<Contact />} />
         <Route exact path="/about" element={<About />} />
 
-        <Route
+        {/* <Route
           element={<PrivateRouteAdmin isAdmin={true} />}
         >
-          <Route element={<Dashboard />} path="/admin/dashboard" exact />
-        </Route>
+          <Route element={<Dashboard />} path="/admin/dashboard" exact/>
+        </Route> */}
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<ProductList />} path="/admin/products" exact />
-        </Route>
+        <Route path="/admin/dashboard"
+          element={
+            <PrivateRouteAdmin isAdmin={true} >
+              <Dashboard />
+            </PrivateRouteAdmin>
+          }
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<NewProduct />} path="/admin/product" exact />
-        </Route>
+        <Route path="/admin/products"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <ProductList />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<UpdateProduct />} path="/admin/product/:id" exact />
-        </Route>
+        <Route path="/admin/product"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <NewProduct />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<OrderList />} path="/admin/orders" exact />
-        </Route>
+        <Route path="/admin/product/:id"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <UpdateProduct />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<ProcessOrder />} path="/admin/order/:id" exact />
-        </Route>
+        <Route path="/admin/orders"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <OrderList />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<UsersList />} path="/admin/users" exact />
-        </Route>
+        <Route path="/admin/order/:id"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <ProcessOrder />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<UpdateUser />} path="/admin/user/:id" exact />
-        </Route>
+        <Route path="/admin/users"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <UsersList />
+          </PrivateRouteAdmin>}
+        ></Route>
 
-        <Route
-          element={<PrivateRouteAdmin isAdmin={true} />}
-        >
-          <Route element={<ProductReviews />} path="/admin/reviews" exact />
-        </Route>
+        <Route path="/admin/user/:id"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <UpdateUser />
+          </PrivateRouteAdmin>}
+        ></Route>
+
+        <Route path="/admin/reviews"
+          element={<PrivateRouteAdmin isAdmin={true} >
+            <ProductReviews />
+          </PrivateRouteAdmin>}
+        ></Route>
 
 
-
-
-        <Route
+        {/* <Route
           element={<PrivateRoute isAdmin={false} />}
         >
           <Route element={<Profile />} path="/account" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<UpdateProfile />} path="/me/update" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<UpdatePassword />} path="/password/update" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<Shipping />} path="/login/shipping" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<ConfirmOrder />} path="/order/confirm" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<OrderSuccess />} path="/success" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<MyOrders />} path="/orders" exact />
-        </Route>
-        <Route
-          element={<PrivateRoute isAdmin={false} />}
-        >
-          <Route element={<OrderDetails />} path="/order/:id" exact />
-        </Route>
+        </Route> */}
+
+        <Route path="/account"
+          element={<PrivateRoute isAdmin={false} >
+            <Profile />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/me/update"
+          element={<PrivateRoute isAdmin={false} >
+            <UpdateProfile />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/password/update"
+          element={<PrivateRoute isAdmin={false} >
+            <UpdatePassword />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/login/shipping"
+          element={<PrivateRoute isAdmin={false} >
+            <Shipping />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/order/confirm"
+          element={<PrivateRoute isAdmin={false} >
+            <ConfirmOrder />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/success"
+          element={<PrivateRoute isAdmin={false} >
+            <OrderSuccess />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/orders"
+          element={<PrivateRoute isAdmin={false} >
+            <MyOrders />
+          </PrivateRoute>}
+        ></Route>
+        <Route path="/order/:id"
+          element={<PrivateRoute isAdmin={false} >
+            <OrderDetails />
+          </PrivateRoute>}
+        ></Route>
 
 
         <Route element={
           <PaymentGuard />
         } path="/process/payment" exact />
 
-        <Route path='*' element={ <NotFound />} />
+        <Route path='*' element={<NotFound />} />
       </Routes>
 
       <Footer />
