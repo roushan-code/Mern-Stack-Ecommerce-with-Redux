@@ -10,10 +10,8 @@
   align-items: center;
   position: absolute;
   top: 0;
-    >div{
-      
-        height: 52px;
-        
+    >div{ 
+        height: 52px;      
     }
   }
   .weblogo{
@@ -22,14 +20,12 @@
         overflow: hidden;
         border-radius: 50%;
   }
-
   .navbar-brand> img{
     width: 116px;
     position: relative;
     top: -30px;
     left: -17px;
   }
-  
   .navbar-nav {
     display: flex;
     list-style: none;
@@ -37,11 +33,9 @@
     position: relative;
     font-family: "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
   }
-  
   .nav-item {
     margin-right: 20px;
   }
-  
   .nav-link {
     text-decoration: none;
     color: #fff;
@@ -55,15 +49,11 @@
   .nav-link:hover{
     color: #3027ae;
   }
-  
-  
-  
   .icons-section{
     width: 15vw;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-
     > a{
       font-size: 30px;
       padding: 7px;
@@ -74,15 +64,9 @@
   .icons-section>a:hover{
     color: #3027ae;
   }
-
   .hamburger{
     display: none;
   }
-
-
-
-
-
   @media screen and (max-width: 900px) {
     .nav-link {
       padding: 10px;
@@ -92,20 +76,15 @@
     .nav-link:hover {
       color: #3027ae;
     }
-
-
     .web-header{
       display: none;
     }
-
     .hamburger{
       display: block;
     }
-
     body {
       margin: 0;
     }
-    
     :root {
       --bar-width: 40px;
       --bar-height: 4px;
@@ -116,10 +95,8 @@
       --animation-timing: 200ms ease-in-out;
       --hamburger-height: calc(var(--bar-height) * 3 + var(--hamburger-gap) * 2);
     }
-    
     .hamburger-menu {
       --x-width: calc(var(--hamburger-height) * 1.41421356237);
-    
       display: flex;
       flex-direction: column;
       gap: var(--hamburger-gap);
@@ -130,19 +107,16 @@
       z-index: 500;
       cursor: pointer;
     }
-    
     .hamburger-menu:has(input:checked) {
       --foreground: white;
       --background: #333;
     }
-    
     .hamburger-menu:has(input:focus-visible)::before,
     .hamburger-menu:has(input:focus-visible)::after,
     .hamburger-menu input:focus-visible {
       border: 1px solid var(--background);
       box-shadow: 0 0 0 1px var(--foreground);
     }
-    
     .hamburger-menu::before,
     .hamburger-menu::after,
     .hamburger-menu input {
@@ -156,7 +130,6 @@
         rotate var(--animation-timing), translate var(--animation-timing),
         background-color var(--animation-timing);
     }
-    
     .hamburger-menu input {
       appearance: none;
       padding: 0;
@@ -164,24 +137,20 @@
       outline: none;
       pointer-events: none;
     }
-    
     .hamburger-menu:has(input:checked)::before {
       rotate: 45deg;
       width: var(--x-width);
       translate: 0 calc(var(--bar-height) / -2);
     }
-    
     .hamburger-menu:has(input:checked)::after {
       rotate: -45deg;
       width: var(--x-width);
       translate: 0 calc(var(--bar-height) / 2);
     }
-    
     .hamburger-menu input:checked {
       opacity: 0;
       width: 0;
     }
-    
     .side-bar {
       transition: translate var(--animation-timing);
     translate: -100%;
@@ -199,12 +168,10 @@
     flex-direction: column;
     align-items: center;
     }
-
     .navbar-logo{
       width: 20vw;
       border-radius: 50%;
     }
-
     .navbar-nav{
       flex-direction: column;
       padding: 10px;
@@ -212,8 +179,7 @@
     .nav-item {
       padding: 10px;
   }
-
-    .icons-section{
+  .icons-section{
       display: flex;
     width: max-content;
     justify-content: center;
@@ -230,7 +196,6 @@
     .hamburger-menu:has(input:checked) + .side-bar {
       translate: 0;
     }
-
   }
 
 /* User Option */
@@ -240,7 +205,6 @@
   right: 3vmax;
   top: 4vmax;
 }
-
 .speedDialIcon {
   width: 56px;
   height: 56px;

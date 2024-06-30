@@ -8,16 +8,10 @@ import Loader from '../layout/Loader/loader.jsx';
 import { toast } from 'react-toastify';
 import ProductCard from './ProductCard.jsx';
 
-
-
-const Home = () => {
-    
+const Home = () => { 
     const dispatch = useDispatch();
     const { loading, error, products } = useSelector((state) => state.products);
-    // console.log(products);
     
-    
-
     useEffect(() => {
         if(error){
             toast.error(error);
@@ -25,12 +19,6 @@ const Home = () => {
         }
         dispatch(getProduct())
     }, [dispatch, error]);
-
-
-   
-
-
-
     return (
         <Fragment>
             { loading ? (<Loader/>) : (<Fragment>
@@ -38,22 +26,18 @@ const Home = () => {
             <div className="banner">
                 <p>Welcome to Ecommerce</p>
                 <h1>FIND AMAZING PRODUCTS</h1>
-
                 <a href="#container">
                     <button>
                         Scroll <CgMouse />
                     </button>
                 </a>
             </div>
-
             <h2 className="homeHeading">Featured Products</h2>
-            
             <div className="container" id='container'>
                 {products && products.map(product => (
                     <ProductCard product={product} key={product._id}/>
                 ))}
             </div>
-            
         </Fragment>)}
         </Fragment>
         );

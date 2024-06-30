@@ -14,16 +14,10 @@ const ConfirmOrder = () => {
       (acc, item) => acc + item.quantity * item.price,
       0
     );
-  
-    
     let shippingCharges = (subtotal > 1000) ? 0 : 200;
-    
     const tax = subtotal * 0.18;
-  
     const totalPrice = subtotal + tax + shippingCharges;
-  
     const address = `${shippingInfo.address}, ${shippingInfo.city}, ${shippingInfo.state}, ${shippingInfo.pinCode}, ${shippingInfo.country}`;
-  
     const proceedToPayment = () => {
       const data = {
         subtotal,
@@ -31,14 +25,10 @@ const ConfirmOrder = () => {
         tax,
         totalPrice,
       };
-  
       sessionStorage.setItem("orderInfo", JSON.stringify(data));
       // sessionStorage.setItem['orderInfo'] = JSON.stringify(data);
-
-
       navigate("/process/payment");
     };
-  
     return (
       <Fragment>
         <Metadata title="Confirm Order" />
@@ -81,7 +71,6 @@ const ConfirmOrder = () => {
               </div>
             </div>
           </div>
-          {/*  */}
           <div>
             <div className="orderSummary">
               <h2 className="h22">Order Summery</h2>
@@ -99,14 +88,12 @@ const ConfirmOrder = () => {
                   <span>₹{tax}</span>
                 </div>
               </div>
-  
               <div className="orderSummaryTotal">
                 <p>
                   <b>Total:</b>
                 </p>
                 <span>₹{totalPrice}</span>
               </div>
-  
               <button onClick={proceedToPayment}>Proceed To Payment</button>
             </div>
           </div>

@@ -21,10 +21,7 @@ const UpdateProduct = () => {
     const {id} = useParams();
     const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-
   const { error, product } = useSelector((state) => state.productDetails);
-
   const {
     loading,
     error: updateError,
@@ -56,8 +53,6 @@ const UpdateProduct = () => {
     if (product && product._id !== productId) {
       dispatch(getProductDetails(productId));
     } else {
-
-      console.log(product && product.name)
       setName(product && product.name);
       setDescription(product && product.description);
       setPrice(product && product.price);
@@ -69,20 +64,17 @@ const UpdateProduct = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (updateError) {
       toast.error(updateError);
       dispatch(clearErrors());
     }
-
     if (isUpdated) {
       toast.success("Product Updated Successfully");
       navigate("/admin/products");
       dispatch({ type: UPDATE_PRODUCT_RESET });
     }
   }, [
-    dispatch,
-    
+    dispatch, 
     error,
     navigate,
     isUpdated,
@@ -95,7 +87,6 @@ const UpdateProduct = () => {
     e.preventDefault();
 
     const myForm = new FormData();
-
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
@@ -110,25 +101,20 @@ const UpdateProduct = () => {
 
   const updateProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
-
     setImages([]);
     setImagesPreview([]);
     setOldImages([]);
-
     files.forEach((file) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }
       };
-
       reader.readAsDataURL(file);
     });
   };
-
   return (
     <Fragment>
       <Metadata title="Create Product" />
@@ -138,10 +124,8 @@ const UpdateProduct = () => {
           <form
             className="createProductForm"
             encType="multipart/form-data"
-            onSubmit={updateProductSubmitHandler}
-          >
+            onSubmit={updateProductSubmitHandler}>
             <h1>Update Product</h1>
-
             <div>
               <SpellcheckIcon />
               <input
@@ -162,10 +146,8 @@ const UpdateProduct = () => {
                 value={price}
               />
             </div>
-
             <div>
               <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -174,7 +156,6 @@ const UpdateProduct = () => {
                 rows="1"
               ></textarea>
             </div>
-
             <div>
               <AccountTreeIcon />
               <select
@@ -189,7 +170,6 @@ const UpdateProduct = () => {
                 ))}
               </select>
             </div>
-
             <div>
               <StorageIcon />
               <input
@@ -210,20 +190,17 @@ const UpdateProduct = () => {
                 multiple
               />
             </div>
-
             <div id="createProductFormImage">
               {oldImages &&
                 oldImages.map((image, index) => (
                   <img key={index} src={image.url} alt="Old Product Preview" />
                 ))}
             </div>
-
             <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
             </div>
-
             <button
             className="MuiButtonBase-root MuiButton-root MuiButton-text"
               id="createProductBtn"

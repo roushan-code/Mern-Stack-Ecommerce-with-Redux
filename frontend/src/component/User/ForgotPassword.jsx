@@ -7,21 +7,16 @@ import { useDispatch, useSelector } from "react-redux";
 import { toast } from 'react-toastify';
 import Metadata from "../layout/Metadata";
 
-
 const ForgotPassword = () => {
     const dispatch = useDispatch();
-  
     const { error, message, loading } = useSelector(
       (state) => state.forgotPassword
     );
-  
     const [email, setEmail] = useState("");
-  
     const forgotPasswordSubmit = (e) => {
       e.preventDefault();
-  
+
       const myForm = new FormData();
-  
       myForm.set("email", email);
       dispatch(forgotPassword(myForm));
     };
@@ -31,12 +26,10 @@ const ForgotPassword = () => {
         toast.error(error);
         dispatch(clearErrors());
       }
-  
       if (message) {
         toast.success(message);
       }
     }, [dispatch, error,  message]);
-  
     return (
       <Fragment>
         {loading ? (

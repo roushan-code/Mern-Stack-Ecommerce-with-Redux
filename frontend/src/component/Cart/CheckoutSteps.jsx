@@ -24,7 +24,6 @@ const CheckoutSteps = ({activeStep}) => {
     const stepStyles = {
         boxSizing: "border-box",
       };
-      
   return (
     <Fragment>
       <Stepper alternativeLabel activeStep={activeStep} style={stepStyles}>

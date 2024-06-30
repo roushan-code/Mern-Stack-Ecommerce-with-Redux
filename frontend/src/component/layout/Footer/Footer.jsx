@@ -6,7 +6,6 @@ import "./Footer.css"
 const Footer = () => {
   return (
     <footer id="footer">
-
         <div className="leftFooter">
           <h4>DOWNLOAD OUT AP4</h4>
           <p>Download App for Android and IOS mobile Phone</p>
@@ -26,7 +25,6 @@ const Footer = () => {
           <a href="https://www.instagram.com/roushansingh3698/">Instagram</a>
           <a href="https://www.youtube.com/channel/UCvEI5ZzcQUubigBvBgvotSg">Youtube</a>
           <a href="https://www.facebook.com/profile.php?id=100032073308149">Facebook</a>
-
         </div>
     </footer>
   );

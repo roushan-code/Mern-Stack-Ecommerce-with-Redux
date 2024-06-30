@@ -18,15 +18,10 @@ import { DELETE_PRODUCT_RESET } from "../../constants/productConstants";
 const ProductList = () => {
     const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  
-
   const { error, products } = useSelector((state) => state.products);
-
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.product
   );
-   
   const deleteProductHandler = (id) => {
     dispatch(deleteProduct(id));
   };
@@ -36,24 +31,20 @@ const ProductList = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (deleteError) {
       toast.error(deleteError);
       dispatch(clearErrors());
     }
-
     if (isDeleted) {
       toast.success("Product Deleted Successfully");
       navigate("/admin/dashboard");
       dispatch({ type: DELETE_PRODUCT_RESET });
     }
-
     dispatch(getAdminProduct());
   }, [dispatch,  error, deleteError, navigate, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Product ID", minWidth: 200, flex: 0.5 },
-
     {
       field: "name",
       headerName: "Name",
@@ -67,7 +58,6 @@ const ProductList = () => {
       minWidth: 150,
       flex: 0.3,
     },
-
     {
       field: "price",
       headerName: "Price",
@@ -75,7 +65,6 @@ const ProductList = () => {
       minWidth: 270,
       flex: 0.5,
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -89,13 +78,11 @@ const ProductList = () => {
             <Link to={`/admin/product/${params.row.id}`}>
               <EditIcon />
             </Link>
-
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text"
               onClick={() =>
                 deleteProductHandler(params.row.id)
-              }
-            >
+              }>
               <span class="MuiButton-label"><DeleteIcon /></span>
               <span class="MuiTouchRipple-root"></span>
             </button>
@@ -116,16 +103,13 @@ const ProductList = () => {
         name: item.name,
       });
     });
-
   return (
     <Fragment>
       <Metadata title={`ALL PRODUCTS - Admin`} />
-
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL PRODUCTS</h1>
-
           <DataGrid
             rows={rows}
             columns={columns}

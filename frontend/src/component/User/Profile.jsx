@@ -5,8 +5,6 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Profile.css";
 import Loader from "../layout/Loader/loader";
 
-
-
 const Profile = () => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
   const navigate = useNavigate();
@@ -41,7 +39,6 @@ const Profile = () => {
                 <h4>Joined On</h4>
                 <p>{String( user && user.createdAt).substr(0, 10)}</p>
               </div>
-
               <div>
                 <Link to="/orders">My Orders</Link>
                 <Link to="/password/update">Change Password</Link>

@@ -7,7 +7,6 @@ const NotFound = () => {
   return (
     <div className="PageNotFound">
       <ErrorIcon />
-
       <h2 className="h22">Page Not Found </h2>
       <Link to="/">Home</Link>
     </div>

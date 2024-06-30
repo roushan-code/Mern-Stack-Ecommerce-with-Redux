@@ -12,25 +12,18 @@ import Metadata from "../layout/Metadata";
 const ResetPassword = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    
-  
     const {token} = useParams();
-
     const { error, success, loading } = useSelector(
       (state) => state.forgotPassword
     );
-  
     const [password, setPassword] = useState("");
     const [confirmPassword, setConfirmPassword] = useState("");
-  
     const resetPasswordSubmit = (e) => {
       e.preventDefault();
-  
+
       const myForm = new FormData();
-  
       myForm.set("password", password);
       myForm.set("confirmPassword", confirmPassword);
-  
       dispatch(resetPassword(token, myForm));
     };
   
@@ -39,14 +32,11 @@ const ResetPassword = () => {
         toast.error(error);
         dispatch(clearErrors());
       }
-  
       if (success) {
         toast.success("Password Updated Successfully");
-  
         navigate("/login");
       }
     }, [dispatch, error, navigate, success]);
-  
     return (
       <Fragment>
         {loading ? (

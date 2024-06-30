@@ -7,15 +7,10 @@ import RemoveShoppingCartIcon from '@mui/icons-material/RemoveShoppingCart';
 import { Link, useNavigate } from "react-router-dom";
 import Metadata from "../layout/Metadata.jsx";
 
-
 const Cart = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-
     const { cartItems } = useSelector((state) => state.cart);
-    // console.log(cart.cartItems)
-    
-  
     const increaseQuantity = (id, quantity, stock) => {
       const newQty = quantity + 1;
       if (stock <= quantity) {
@@ -39,18 +34,12 @@ const Cart = () => {
     const checkoutHandler = () => {
       navigate("/login?redirect=shipping");
     };
-
-
-
-    
-  
     return (
       <Fragment>
         <Metadata title="Cart" />
         {cartItems.length === 0 ? (
           <div className="emptyCart">
             <RemoveShoppingCartIcon />
-  
             <h2 className="h22">No Product in Your Cart</h2>
             <Link to="/products">View Products</Link>
           </div>
@@ -62,7 +51,6 @@ const Cart = () => {
                 <p>Quantity</p>
                 <p>Subtotal</p>
               </div>
-  
               {cartItems &&
                 cartItems.map((item) => (
                   <div className="cartContainer" key={item.product}>
@@ -114,5 +102,4 @@ const Cart = () => {
       </Fragment>
     );
   };
-  
   export default Cart;

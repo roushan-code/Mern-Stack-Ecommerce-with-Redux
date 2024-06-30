@@ -26,8 +26,6 @@ import UpdatePassword from './component/User/UpdatePassword.jsx';
 import Shipping from './component/Cart/Shipping.jsx';
 import ConfirmOrder from './component/Cart/ConfirmOrder.jsx';
 import MyOrders from './component/Order/MyOrders.jsx';
-
-
 import PaymentGuard from './component/Route/PaymentGuard.jsx';
 import OrderSuccess from './component/Cart/OrderSuccess.jsx';
 import OrderDetails from './component/Order/OrderDetails.jsx';
@@ -44,8 +42,6 @@ import NotFound from "./component/layout/Not Found/NotFound.jsx"
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
-
-
   React.useEffect(() => {
     WebFont.load({
       google: {
@@ -53,8 +49,6 @@ function App() {
       }
     })
     store.dispatch(loadUser());
-
-
   }, [])
 
   // window.addEventListener("contextmenu", (e)=> e.preventDefault());
@@ -80,7 +74,6 @@ function App() {
         >
           <Route element={<Dashboard />} path="/admin/dashboard" exact/>
         </Route> */}
-
         <Route path="/admin/dashboard"
           element={
             <PrivateRouteAdmin isAdmin={true} >
@@ -136,7 +129,6 @@ function App() {
             <ProductReviews />
           </PrivateRouteAdmin>}
         ></Route>
-
 
         {/* <Route
           element={<PrivateRoute isAdmin={false} />}

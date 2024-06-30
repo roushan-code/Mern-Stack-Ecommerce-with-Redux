@@ -11,17 +11,13 @@ import { useParams } from 'react-router-dom';
 const OrderDetails = () => {
     const {id} = useParams();
   const { order, error, loading } = useSelector((state) => state.orderDetails);
-  
-
   const dispatch = useDispatch();
-  
 
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     dispatch(getOrderDetails(id));
   }, [dispatch,  error, id]);
   return (

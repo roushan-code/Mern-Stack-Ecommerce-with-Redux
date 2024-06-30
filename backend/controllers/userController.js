@@ -17,14 +17,12 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
         crop: "scale",
     });
 
-
     const user = await User.create({
         name, email, password,
         avatar: {
             public_id: myCloud.public_id,
             url: myCloud.secure_url,
         },
-
     });
     sendToken(user, 201, res);
 });
@@ -33,8 +31,6 @@ exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 exports.loginUser = catchAsyncErrors(async (req, res, next) => {
 
     const { email, password } = req.body;
-
-
     if (!email || !password) {
         return next(new ErrorHandler("Please Enter Email & Password", 400))
     }
@@ -49,9 +45,7 @@ exports.loginUser = catchAsyncErrors(async (req, res, next) => {
     if (!isPasswordMatched) {
         return next(new ErrorHandler("Invalid email or password", 401));
     }
-
     sendToken(user, 200, res);
-
 })
 
 // Logout User

@@ -1,5 +1,4 @@
 .productListContainer {
-  /* width: 100%; */
   position: relative;
   top: 8%;
   box-sizing: border-box;
@@ -9,7 +8,6 @@
   flex-direction: column;
   height: 100vh;
 }
-
 #productListHeading {
   font: 400 2rem "Roboto";
   padding: 0.5vmax;
@@ -19,38 +17,30 @@
   margin: 2rem;
   text-align: center;
 }
-
-
 .productListTable {
   background-color: white;
   border: none !important;
 }
-
 .productListTable div {
   font: 400 1vmax "Roboto";
   color: rgba(0, 0, 0, 0.678);
   border: none !important;
 }
-
 .productListTable a,
 .productListTable button {
   color: rgba(0, 0, 0, 0.527);
   transition: all 0.5s;
   margin-bottom: 17px;
 }
-
 .productListTable a:hover {
   color: tomato;
 }
-
 .productListTable button:hover {
   color: rgb(236, 30, 30);
 }
-
 .MuiDataGrid-columnHeader div {
   color: rgb(255, 255, 255);
 }
-
 @media screen and (max-width: 600px) {
   .productListTable div {
     font: 300 4vw "Roboto";

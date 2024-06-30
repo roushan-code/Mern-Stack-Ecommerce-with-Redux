@@ -18,22 +18,16 @@ import "./processOrder.css";
 const ProcessOrder = () => {
   const { id } = useParams();
   const { order, error, loading } = useSelector((state) => state.orderDetails);
-
   const { error: updateError, isUpdated } = useSelector((state) => state.order);
 
   const updateOrderSubmitHandler = (e) => {
     e.preventDefault();
-
     const myForm = new FormData();
-
     myForm.set("status", status);
-
     dispatch(updateOrder(id, myForm));
   };
 
   const dispatch = useDispatch();
-  
-
   const [status, setStatus] = useState("");
 
   useEffect(() => {
@@ -49,7 +43,6 @@ const ProcessOrder = () => {
       toast.success("Order Updated Successfully");
       dispatch({ type: UPDATE_ORDER_RESET });
     }
-
     dispatch(getOrderDetails(id));
   }, [dispatch,  error, id, isUpdated, updateError]);
 
@@ -90,7 +83,6 @@ const ProcessOrder = () => {
                       </span>
                     </div>
                   </div>
-
                   <h2 className="h22">Payment</h2>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -100,21 +92,18 @@ const ProcessOrder = () => {
                             order.paymentInfo.status === "succeeded"
                             ? "greenColor"
                             : "redColor"
-                        }
-                      >
+                        }>
                         {order && order.paymentInfo &&
                           order.paymentInfo.status === "succeeded"
                           ? "PAID"
                           : "NOT PAID"}
                       </p>
                     </div>
-
                     <div>
                       <p>Amount:</p>
                       <span>{order && order.totalPrice}</span>
                     </div>
                   </div>
-
                   <h2 className="h22">Order Status</h2>
                   <div className="orderDetailsContainerBox">
                     <div>
@@ -123,8 +112,7 @@ const ProcessOrder = () => {
                           order && order.orderStatus === "Delivered"
                             ? "greenColor"
                             : "redColor"
-                        }
-                      >
+                        }>
                         {order && order.orderStatus}
                       </p>
                     </div>
@@ -132,7 +120,6 @@ const ProcessOrder = () => {
                 </div>
                 <div className="confirmCartItems">
                   <h2 className="h22">Your Cart Items:</h2>
-
                   <div className="confirmCartItemsContainer">
                     {order && order.orderItems &&
                       order.orderItems.map((item) => (
@@ -150,18 +137,14 @@ const ProcessOrder = () => {
                   </div>
                 </div>
               </div>
-              {/*  */}
               <div
                 style={{
                   display: order && order.orderStatus === "Delivered" ? "none" : "block",
-                }}
-              >
+                }}>
                 <form
                   className="updateOrderForm"
-                  onSubmit={updateOrderSubmitHandler}
-                >
+                  onSubmit={updateOrderSubmitHandler}>
                   <h1>Process Order</h1>
-
                   <div>
                     <AccountTreeIcon />
                     <select onChange={(e) => setStatus(e.target.value)}>
@@ -169,24 +152,20 @@ const ProcessOrder = () => {
                       {order && order.orderStatus === "Processing" && (
                         <option value="Shipped">Shipped</option>
                       )}
-
                       {order && order.orderStatus === "Shipped" && (
                         <option value="Delivered">Delivered</option>
                       )}
                     </select>
                   </div>
-
                   <button
                     className="MuiButtonBase-root MuiButton-root MuiButton-text"
                     id="createProductBtn"
                     type="submit"
                     disabled={
                       loading ? true : false || status === "" ? true : false
-                    }
-                  >
+                    }>
                     <span class="MuiButton-label">Process</span>
                     <span class="MuiTouchRipple-root"></span>
-
                   </button>
                 </form>
               </div>
@@ -197,5 +176,4 @@ const ProcessOrder = () => {
     </Fragment>
   );
 };
-
 export default ProcessOrder;

@@ -6,7 +6,6 @@ footer{
     display: flex;
     align-items: center;
 }
-
 .leftFooter{
     width: 20%;
     display: flex;
@@ -17,7 +16,6 @@ footer{
     font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
     font-size: 1.2vmax;
 }
-
 .leftFooter>p{
     text-align: center;
     font-family: "Lucida Sans Regular", "Lucida Grande", "Lucida Sans Unicode", Geneva, Verdana, sans-serif;
@@ -27,7 +25,6 @@ footer{
     margin: 1vmax;
     cursor: pointer;
 }
-
 .midFooter{
     width: 60%;
     text-align: center;

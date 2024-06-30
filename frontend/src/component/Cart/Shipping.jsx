@@ -17,10 +17,8 @@ import CheckoutSteps from "../Cart/CheckoutSteps.jsx"
 
 const Shipping = () => {
     const navigate = useNavigate();
-    const dispatch = useDispatch();
-    
-    const { shippingInfo } = useSelector(state => state.cart);
-
+    const dispatch = useDispatch(); 
+    const { shippingInfo } = useSelector(state => state.cart)
     const [address, setAddress] = useState(shippingInfo.address);
     const [city, setCity] = useState(shippingInfo.city);
     const [state, setState] = useState(shippingInfo.state);
@@ -30,7 +28,6 @@ const Shipping = () => {
 
     const shippingSubmit = (e)=>{
         e.preventDefault();
-
         if(phoneNo.length < 10 || phoneNo.length >10){
             toast.error("Phone Number should be 10 digits Long");
             return;
@@ -38,8 +35,6 @@ const Shipping = () => {
         dispatch( saveShippingInfo({address, city, state, country, pinCode, phoneNo}))
         navigate("/order/confirm");
     }
-
-
     return (
         <Fragment>
             <Metadata title="Shipping Details" />
@@ -47,7 +42,6 @@ const Shipping = () => {
             <div className="shippingContainer">
                 <div className="shippingBox">
                     <h2 className="shippingHeading">Shipping Details</h2>
-
                     <form className="shippingForm"
                         encType='multipart/form-data'
                         onSubmit={shippingSubmit}
@@ -105,10 +99,8 @@ const Shipping = () => {
                                         </option>
                                     ))
                                 }
-
                             </select>
                         </div>
-
                         {country && (
                             <div>
                                 <TransferWithinAStationIcon />
@@ -126,14 +118,12 @@ const Shipping = () => {
                                 </select>
                             </div>
                         )}
-
                         <input
                             type="submit"
                             value="Continue"
                             className="shippingBtn"
                             disabled={state ? false : true}
                         />
-
                     </form>
                 </div>
             </div>

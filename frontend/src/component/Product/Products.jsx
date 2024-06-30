@@ -10,7 +10,6 @@ import Slider from '@mui/material/Slider';
 import { toast } from 'react-toastify';
 import MetaData from "../layout/Metadata";
 
-
 const categories = [
   "Laptop",
   "Footwear",
@@ -20,18 +19,12 @@ const categories = [
   "Camera",
   "SmartPhones",
 ];
-
 const Products = () => {
-
   const dispatch = useDispatch();
-
-
   const [currentPage, setCurrentPage] = useState(1);
   const [price, setPrice] = useState([0, 150000]);
   const [category, setCategory] = useState("");
-
   const [ratings, setRatings] = useState(0);
-
 
 const {
 products,
@@ -41,30 +34,22 @@ productsCount,
 resultPerPage,
 filteredProductsCount,
 } = useSelector((state)=>state.products);
-
 const {keyword} = useParams();
-
 const setCurrentPageNo = (e)=>{
   setCurrentPage(e);
 };
-
 const priceHandler = (event, newPrice)=>{
   setPrice(newPrice);
 }
 
 let count = filteredProductsCount;
-
   useEffect(()=>{
     if(error){
       toast.error(error);
       dispatch(clearErrors());
     }
-    
     dispatch(getProduct(keyword, currentPage, price, category, ratings));
-
   },[dispatch, keyword, currentPage,price, category, ratings, error]);
-
-
   return (
     <Fragment>
       {loading ? (
@@ -82,7 +67,6 @@ let count = filteredProductsCount;
               min={0}
               max={150000}
             />
-
             <h2 className="h22">Categories</h2>
             <ul className="categoryBox">
               {categories.map((category) => (
@@ -95,7 +79,6 @@ let count = filteredProductsCount;
                 </li>
               ))}
             </ul>
-
             <fieldset>
               <h2 className="h22">Ratings Above</h2>
               <Slider
@@ -118,8 +101,6 @@ let count = filteredProductsCount;
                 <ProductCard key={product && product._id} product={product} />
               ))}
           </div>
-
-          
           {resultPerPage < count && (
             <div className="paginationBox">
               <Pagination

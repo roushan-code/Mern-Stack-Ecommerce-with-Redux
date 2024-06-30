@@ -13,14 +13,10 @@ import SideBar from "./Sidebar";
 import { NEW_PRODUCT_RESET } from "../../constants/productConstants";
 import { toast } from 'react-toastify';
 
-
 const NewProduct = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-
   const { loading, error, success } = useSelector((state) => state.newProduct);
-
   const [name, setName] = useState("");
   const [price, setPrice] = useState(0);
   const [description, setDescription] = useState("");
@@ -28,7 +24,6 @@ const NewProduct = () => {
   const [Stock, setStock] = useState(0);
   const [images, setImages] = useState([]);
   const [imagesPreview, setImagesPreview] = useState([]);
-
   const categories = [
     "Laptop",
     "Footwear",
@@ -38,13 +33,11 @@ const NewProduct = () => {
     "Camera",
     "SmartPhones",
   ];
-
   useEffect(() => {
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (success) {
       toast.success("Product Created Successfully");
       navigate("/admin/dashboard");
@@ -54,15 +47,12 @@ const NewProduct = () => {
 
   const createProductSubmitHandler = (e) => {
     e.preventDefault();
-
     const myForm = new FormData();
-
     myForm.set("name", name);
     myForm.set("price", price);
     myForm.set("description", description);
     myForm.set("category", category);
     myForm.set("Stock", Stock);
-
     images.forEach((image) => {
       myForm.append("images", image);
     });
@@ -72,20 +62,17 @@ const NewProduct = () => {
 
   const createProductImagesChange = (e) => {
     const files = Array.from(e.target.files);
-
     setImages([]);
     setImagesPreview([]);
 
     files.forEach((file) => {
       const reader = new FileReader();
-
       reader.onload = () => {
         if (reader.readyState === 2) {
           setImagesPreview((old) => [...old, reader.result]);
           setImages((old) => [...old, reader.result]);
         }
       };
-
       reader.readAsDataURL(file);
     });
   };
@@ -101,8 +88,7 @@ const NewProduct = () => {
             encType="multipart/form-data"
             onSubmit={createProductSubmitHandler}
           >
-            <h1>Create Product</h1>
-            
+            <h1>Create Product</h1> 
             <div>
               <SpellcheckIcon />
               <input
@@ -122,10 +108,8 @@ const NewProduct = () => {
                 onChange={(e) => setPrice(e.target.value)}
               />
             </div>
-
             <div>
               <DescriptionIcon />
-
               <textarea
                 placeholder="Product Description"
                 value={description}
@@ -134,7 +118,6 @@ const NewProduct = () => {
                 rows="1"
               ></textarea>
             </div>
-
             <div>
               <AccountTreeIcon />
               <select onChange={(e) => setCategory(e.target.value)}>
@@ -146,7 +129,6 @@ const NewProduct = () => {
                 ))}
               </select>
             </div>
-
             <div>
               <StorageIcon />
               <input
@@ -166,19 +148,16 @@ const NewProduct = () => {
                 multiple
               />
             </div>
-
             <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
                 <img key={index} src={image} alt="Product Preview" />
               ))}
             </div>
-
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text"
               id="createProductBtn"
               type="submit"
-              disabled={loading ? true : false}
-            >
+              disabled={loading ? true : false}>
               <span class="MuiButton-label">Create</span>
               <span class="MuiTouchRipple-root"></span>
             </button>
@@ -188,5 +167,4 @@ const NewProduct = () => {
     </Fragment>
   );
 };
-
 export default NewProduct;

@@ -13,7 +13,6 @@ const About = () => {
       <div className="aboutSectionGradient"></div>
       <div className="aboutSectionContainer">
         <h2 className="h22">About Us</h2>
-
         <div>
           <div>
             <Avatar
@@ -39,7 +38,6 @@ const About = () => {
             >
               <YouTubeIcon className="youtubeSvgIcon" />
             </a>
-
             <a href="https://www.instagram.com/roushansingh3698/" target="blank">
               <InstagramIcon className="instagramSvgIcon" />
             </a>

@@ -12,16 +12,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { clearErrors, login, register } from "../../actions/userAction";
 import { toast } from 'react-toastify';
 
-
 const LoginSignUp = () => {
     const navigate = useNavigate();
     const location = useLocation();
   const dispatch = useDispatch();
-
   const { error, loading, isAuthenticated } = useSelector(
     (state) => state.user
   );
-
   const loginTab = useRef(null);
   const registerTab = useRef(null);
   const switcherTab = useRef(null);
@@ -54,7 +51,6 @@ const LoginSignUp = () => {
 
   const [loginEmail, setLoginEmail] = useState("");
   const [loginPassword, setLoginPassword] = useState("");
-
   const [user, setUser] = useState({
     name: "",
     email: "",
@@ -62,35 +58,26 @@ const LoginSignUp = () => {
   });
 
   const { name, email, password } = user;
-
   const [avatar, setAvatar] = useState(profile);
   const [avatarPreview, setAvatarPreview] = useState(profile);
 
   const loginSubmit = (e) => {
     e.preventDefault();
-    // console.log("form Submit");
-    
     dispatch(login(loginEmail, loginPassword));
   };
 
   const registerSubmit = (e) => {
     e.preventDefault();
-
     if(avatar === "/static/media/Profile.697fdcd21f6d157b9073.png"){
       toast.error("Please Upload Profile Image")
     }else{
       const myForm = new FormData();
-  
       myForm.set("name", name);
       myForm.set("email", email);
       myForm.set("password", password);
       myForm.set("avatar", avatar);
-      
-      
       dispatch(register(myForm));
-
     }
-    // console.log("you are register")
   };
 
   const registerDataChange = (e) => {
@@ -101,47 +88,33 @@ const LoginSignUp = () => {
         if (reader.readyState === 2) {
           setAvatarPreview(reader.result);
           setAvatar(reader.result);
-          
         }
       };
-
       reader.onerror = (error) => {
         console.error("Error reading the file:", error);
       };
-
       reader.readAsDataURL(e.target.files[0]);
       const selectedFile = e.target.files[0];
-
-      
         if (selectedFile) {
             const fileSize = selectedFile.size; // File size in bytes
             const maxFileSize = 700000; // 700kb in bytes
-
             if (fileSize > maxFileSize) {
                 toast.error('File size exceeds the maximum limit of 700 kb.');
             }
         }
-      
     } else {
       setUser({ ...user, [e.target.name]: e.target.value });
-      
     }
   };
-  // const redirect = "/account";
   const redirect = location.search ? location.search.split("=")[1] : "/account";
-
-  
-
   useEffect(() => {
     if (error) {
-      toast.error(error);
-        
+      toast.error(error); 
       dispatch(clearErrors());
     }
     if (isAuthenticated) {
       navigate(redirect);
     }
-    
   }, [dispatch, error, isAuthenticated,redirect, navigate ]);
 
   const switchTabs = (e, tab) => {
@@ -160,14 +133,12 @@ const LoginSignUp = () => {
       loginTab.current.classList.add("shiftToLeft");
     }
   };
-
   return (
     <Fragment>
       {loading ? (
         <Loader />
       ) : (
         <Fragment>
-          
           <div className="LoginSignUpContainer">
             <div className="LoginSignUpBox">
               <div>

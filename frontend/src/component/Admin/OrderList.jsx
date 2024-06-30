@@ -15,17 +15,11 @@ import {
 } from "../../actions/orderAction";
 import { DELETE_ORDER_RESET } from "../../constants/orderConstants";
 
-
 const OrderList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-
   const { error, orders } = useSelector((state) => state.allOrders);
-  // console.log(orders);
-
   const { error: deleteError, isDeleted } = useSelector((state) => state.order);
-
   const deleteOrderHandler = (id) => {
     dispatch(deleteOrder(id));
   };
@@ -35,24 +29,20 @@ const OrderList = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (deleteError) {
       toast.error(deleteError);
       dispatch(clearErrors());
     }
-
     if (isDeleted) {
       toast.success("Order Deleted Successfully");
       navigate("/admin/orders");
       dispatch({ type: DELETE_ORDER_RESET });
     }
-
     dispatch(getAllOrders());
   }, [dispatch, error, deleteError, navigate, isDeleted]);
 
   const columns = [
     { field: "id", headerName: "Order ID", minWidth: 300, flex: 1 },
-
     {
       field: "status",
       headerName: "Status",
@@ -71,7 +61,6 @@ const OrderList = () => {
       minWidth: 150,
       flex: 0.4,
     },
-
     {
       field: "amount",
       headerName: "Amount",
@@ -79,7 +68,6 @@ const OrderList = () => {
       minWidth: 270,
       flex: 0.5,
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -93,17 +81,14 @@ const OrderList = () => {
             <Link to={`/admin/order/${params.row.id}`}>
               <EditIcon />
             </Link>
-
             <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text"
               onClick={() =>
                 deleteOrderHandler(params.row.id)
-              }
-            >
+              }>
               <span class="MuiButton-label"><DeleteIcon /></span>
               <span class="MuiTouchRipple-root"></span>
             </button>
-            
           </Fragment>
         );
       },
@@ -111,7 +96,6 @@ const OrderList = () => {
   ];
 
   const rows = [];
-
   orders &&
     orders.forEach((item) => {
       rows.push({
@@ -121,16 +105,13 @@ const OrderList = () => {
         status: item.orderStatus,
       });
     });
-
   return (
     <Fragment>
       <Metadata title={`ALL ORDERS - Admin`} />
-
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL ORDERS</h1>
-
           <DataGrid
             rows={rows}
             columns={columns}

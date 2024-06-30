@@ -3,27 +3,22 @@
     scroll-behavior: smooth !important;
     box-sizing: border-box;
   } 
-  
   body{
     cursor: url("./images/cursor.png"), auto;
   }
-  
   /* Chrome, Safari, Edge, Opera */
   input::-webkit-outer-spin-button,
   input::-webkit-inner-spin-button{
     -webkit-appearance: none;
     margin: 0;
   }
-  
   /* Firefox */
   input[type="number"]{
     -moz-appearance: textfield;
-  }
-  
+  } 
   .MuiButton-text {
     padding: 6px 8px;
   }
-  
   .MuiButton-root {
     color: rgba(0, 0, 0, 0.87);
     padding: 6px 16px;
@@ -58,7 +53,6 @@
     -webkit-appearance: none;
     -webkit-tap-highlight-color: transparent;
   }
-  
   .MuiButton-label {
     width: 100%;
     display: inherit;
@@ -76,7 +70,6 @@
     border-radius: inherit;
     pointer-events: none;
   }
-  
   .greenColor {
     color: green !important;
   }

@@ -14,10 +14,7 @@ import Metadata from "../layout/Metadata";
 const UpdatePassword = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
-  
-
   const { error, isUpdated, loading } = useSelector((state) => state.profile);
-
   const [oldPassword, setOldPassword] = useState("");
   const [newPassword, setNewPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -26,11 +23,9 @@ const UpdatePassword = () => {
     e.preventDefault();
 
     const myForm = new FormData();
-
     myForm.set("oldPassword", oldPassword);
     myForm.set("newPassword", newPassword);
     myForm.set("confirmPassword", confirmPassword);
-
     dispatch(updatePassword(myForm));
   };
 
@@ -39,12 +34,9 @@ const UpdatePassword = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (isUpdated) {
       toast.success("Profile Updated Successfully");
-
       navigate("/account");
-
       dispatch({
         type: UPDATE_PASSWORD_RESET,
       });
@@ -60,7 +52,6 @@ const UpdatePassword = () => {
           <div className="updatePasswordContainer">
             <div className="updatePasswordBox">
               <h2 className="updatePasswordHeading">Update Profile</h2>
-
               <form
                 className="updatePasswordForm"
                 onSubmit={updatePasswordSubmit}
@@ -75,7 +66,6 @@ const UpdatePassword = () => {
                     onChange={(e) => setOldPassword(e.target.value)}
                   />
                 </div>
-
                 <div className="loginPassword">
                   <LockOpenIcon />
                   <input

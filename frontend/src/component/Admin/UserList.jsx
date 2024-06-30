@@ -14,16 +14,12 @@ import { DELETE_USER_RESET } from "../../constants/userConstants";
 const UsersList = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-
-
   const { error, users } = useSelector((state) => state.allUsers);
-
   const {
     error: deleteError,
     isDeleted,
     message,
   } = useSelector((state) => state.profile);
-
   const deleteUserHandler = (id) => {
     dispatch(deleteUser(id));
   };
@@ -33,24 +29,20 @@ const UsersList = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (deleteError) {
       toast.error(deleteError);
       dispatch(clearErrors());
     }
-
     if (isDeleted) {
       toast.success(message);
       navigate("/admin/users");
       dispatch({ type: DELETE_USER_RESET });
     }
-
     dispatch(getAllUsers());
   }, [dispatch,  error, deleteError, navigate, isDeleted, message]);
 
   const columns = [
     { field: "id", headerName: "User ID", minWidth: 180, flex: 0.8 },
-
     {
       field: "email",
       headerName: "Email",
@@ -63,7 +55,6 @@ const UsersList = () => {
       minWidth: 150,
       flex: 0.5,
     },
-
     {
       field: "role",
       headerName: "Role",
@@ -76,7 +67,6 @@ const UsersList = () => {
           : "redColor";
       },
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -90,7 +80,6 @@ const UsersList = () => {
             <Link to={`/admin/user/${params.row.id}`}>
               <EditIcon />
             </Link>
-
             <button
             className="MuiButtonBase-root MuiButton-root MuiButton-text"
               onClick={() =>
@@ -121,12 +110,10 @@ const UsersList = () => {
   return (
     <Fragment>
       <Metadata title={`ALL USERS - Admin`} />
-
       <div className="dashboard">
         <SideBar />
         <div className="productListContainer">
           <h1 id="productListHeading">ALL USERS</h1>
-
           <DataGrid
             rows={rows}
             columns={columns}
@@ -140,5 +127,4 @@ const UsersList = () => {
     </Fragment>
   );
 };
-
 export default UsersList;

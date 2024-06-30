@@ -8,9 +8,7 @@ import PeopleIcon from "@mui/icons-material/People";
 import RateReviewIcon from "@mui/icons-material/RateReview";
 import Tree from "./Tree";
 
-
 const Sidebar = () => {
-  
     return (
       <div className={`sidebar ${(window.location.pathname === "/admin/dashboard")   ? 'dash-sidebar' : ''}`}>
         <Link to="/">
@@ -22,7 +20,6 @@ const Sidebar = () => {
           </p>
         </Link>
         <span>
-        
           <Tree/>
         </span>
         <Link to="/admin/orders">
@@ -45,5 +42,4 @@ const Sidebar = () => {
       </div>
     );
   };
-  
   export default Sidebar;

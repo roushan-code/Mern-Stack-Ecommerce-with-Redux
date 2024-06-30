@@ -21,16 +21,12 @@ import { createOrder } from "../../actions/orderAction";
 
 
 const Payment = () => {
-    
-    // const orderInfo = orderInfoString ? JSON.parse(orderInfoString) : null;
     const orderInfo = JSON.parse(sessionStorage.getItem("orderInfo"));
-
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const stripe = useStripe();
     const elements = useElements();
     const payBtn = useRef(null);
-
     const { shippingInfo, cartItems } = useSelector((state) => state.cart);
     const { user } = useSelector((state) => state.user);
     const { error } = useSelector((state) => state.newOrder);
@@ -49,7 +45,6 @@ const Payment = () => {
         totalPrice: orderInfo.totalPrice,
 
     };
-    // console.log(order);
 
     const submitHandler = async (e) => {
         e.preventDefault();
@@ -66,7 +61,6 @@ const Payment = () => {
             );
 
             const client_secret = data.client_secret;
-
             if (!stripe || !elements) return;
 
             const result = await stripe.confirmCardPayment(client_secret, {
@@ -95,7 +89,6 @@ const Payment = () => {
                         id: result.paymentIntent.id,
                         status: result.paymentIntent.status,
                     };
-                    // console.log(error);
                     dispatch(createOrder(order));
                     navigate("/success");
                 } else {

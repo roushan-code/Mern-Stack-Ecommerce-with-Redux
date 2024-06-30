@@ -17,11 +17,8 @@ import { DELETE_REVIEW_RESET } from "../../constants/productConstants";
 import { useNavigate } from "react-router-dom";
 
 const ProductReviews = () => {
-const navigate = useNavigate();
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-
-  
-
   const { error: deleteError, isDeleted } = useSelector(
     (state) => state.review
   );
@@ -31,7 +28,6 @@ const navigate = useNavigate();
   );
 
   const [productId, setProductId] = useState("");
-
   const deleteReviewHandler = (reviewId) => {
     dispatch(deleteReviews(reviewId, productId));
   };
@@ -40,62 +36,52 @@ const navigate = useNavigate();
     e.preventDefault();
     dispatch(getAllReviews(productId));
     if (error) {
-        toast.error(error);
-        dispatch(clearErrors());
-        
-      }
-  
+      toast.error(error);
+      dispatch(clearErrors());
+    }
   };
 
   useEffect(() => {
     if (productId.length === 24) {
       dispatch(getAllReviews(productId));
     }
-    
-
     if (deleteError) {
       toast.error(deleteError);
       dispatch(clearErrors());
     }
-
     if (isDeleted) {
       toast.success("Review Deleted Successfully");
       navigate("/admin/reviews");
       dispatch({ type: DELETE_REVIEW_RESET });
     }
-  }, [dispatch,   deleteError, navigate, isDeleted, productId]);
+  }, [dispatch, deleteError, navigate, isDeleted, productId]);
 
   const columns = [
     { field: "id", headerName: "Review ID", minWidth: 200, flex: 0.5 },
-
     {
       field: "user",
       headerName: "User",
       minWidth: 200,
       flex: 0.6,
     },
-
     {
       field: "comment",
       headerName: "Comment",
       minWidth: 350,
       flex: 1,
     },
-
     {
       field: "rating",
       headerName: "Rating",
       type: "number",
       minWidth: 180,
       flex: 0.4,
-
       cellClassName: (params) => {
         return params.value >= 3
           ? "greenColor"
           : "redColor";
       },
     },
-
     {
       field: "actions",
       flex: 0.3,
@@ -132,11 +118,9 @@ const navigate = useNavigate();
         user: item.name,
       });
     });
-
   return (
     <Fragment>
       <Metadata title={`ALL REVIEWS - Admin`} />
-
       <div className="dashboard">
         <SideBar />
         <div className="productReviewsContainer">
@@ -145,7 +129,6 @@ const navigate = useNavigate();
             onSubmit={productReviewsSubmitHandler}
           >
             <h1 className="productReviewsFormHeading">ALL REVIEWS</h1>
-
             <div>
               <Star />
               <input
@@ -156,21 +139,18 @@ const navigate = useNavigate();
                 onChange={(e) => setProductId(e.target.value)}
               />
             </div>
-
             <button
-            className="MuiButtonBase-root MuiButton-root MuiButton-text"
+              className="MuiButtonBase-root MuiButton-root MuiButton-text"
               id="createProductBtn"
               type="submit"
               disabled={
                 loading ? true : false || productId === "" ? true : false
               }
             >
-              
               <span class="MuiButton-label">Search</span>
               <span class="MuiTouchRipple-root"></span>
             </button>
           </form>
-
           {reviews && reviews.length > 0 ? (
             <DataGrid
               rows={rows}
@@ -188,5 +168,4 @@ const navigate = useNavigate();
     </Fragment>
   );
 };
-
 export default ProductReviews;

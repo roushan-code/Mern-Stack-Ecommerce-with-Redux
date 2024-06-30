@@ -6,7 +6,6 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
   const navigate = useNavigate();
   const [keyword, setKeyword] = useState("");
-
   const searchSubmitHandler = (e) => {
     e.preventDefault();
     if (keyword.trim()) {
@@ -15,7 +14,6 @@ const Search = () => {
       navigate("/products");
     }
   };
-
   return (
     <Fragment>
       <MetaData title="Search A Product -- ECOMMERCE" />

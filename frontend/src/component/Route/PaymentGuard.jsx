@@ -7,12 +7,6 @@ import Payment from '../Cart/Payment';
 const PaymentGuard = () => {
     const [stripeApiKey, setStripeApiKey] = useState("");
 
-  // async function getStripeApiKey() {
-  //   const { data } = await axios.get("/api/v1/stripeapikey");
-
-  //   setStripeApiKey(data.stripeApiKey);
-  // }
-
   useEffect(() => {
     async function fetchStripeApiKey() {
         try {
@@ -23,10 +17,8 @@ const PaymentGuard = () => {
             // Handle error fetching Stripe API key
         }
     }
-
     fetchStripeApiKey();
 }, []);
-
   return (
     stripeApiKey && (<Elements stripe={loadStripe(stripeApiKey)}>
         <Payment/>

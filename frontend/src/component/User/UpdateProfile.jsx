@@ -11,14 +11,10 @@ import Metadata from "../layout/Metadata";
 import { UPDATE_PROFILE_RESET } from "../../constants/userConstants";
 
 const UpdateProfile = () => {
-    const navigate = useNavigate();
-    
-    const dispatch = useDispatch();
-  
-
+  const navigate = useNavigate(); 
+  const dispatch = useDispatch();
   const { user } = useSelector((state) => state.user);
   const { error,isUpdated, loading } = useSelector((state) => state.profile);
-
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [avatar, setAvatar] = useState();
@@ -28,12 +24,10 @@ const UpdateProfile = () => {
     e.preventDefault();
 
     const myForm = new FormData();
-
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("avatar", avatar);
     dispatch(updateProfile(myForm));
-    
   };
 
   const updateProfileDataChange = (e) => {
@@ -58,24 +52,18 @@ const UpdateProfile = () => {
       setEmail(user.email);
       setAvatarPreview(user && user.avatar && user.avatar.url);
     }
-
     if (error) {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (isUpdated) {
         toast.success("Profile Updated Successfully");
         dispatch(loadUser());
-  
         navigate("/account");
-  
         dispatch({
           type: UPDATE_PROFILE_RESET,
         });
       }
-    
-    
   }, [dispatch, error,  navigate, user,isUpdated]);
   return (
     <Fragment>

@@ -5,23 +5,15 @@ import { Navigate } from "react-router-dom";
 
 const ProtectedRouteAdmin = ({ isAdmin, children }) => {
     const { loading, isAuthenticated, user } = useSelector((state) => state.user);
-    
-    // console.log(loading)
-    // console.log(isAuthenticated)
-    
-    // if (loading === false && isAuthenticated) {
-        
+    // if (loading === false && isAuthenticated) {   
     //     if (isAdmin && user && user.role !== "admin") {
     //         return <Navigate to="/login" replace />;
-    //     } else {
-            
+    //     } else {      
     //         return <Outlet />;
     //     }
     // } else {
-        
     //     return null;
     // }
-
     return (
         <>
             {loading === false && (

@@ -21,22 +21,16 @@ import Metadata from "../layout/Metadata";
 
 const Dashboard = () => {
   const dispatch = useDispatch();
-
   const { products } = useSelector((state) => state.products);
-
   const { orders } = useSelector((state) => state.allOrders);
-
   const { users } = useSelector((state) => state.allUsers);
-
   let outOfStock = 0;
-
   products &&
     products.forEach((item) => {
       if (item.Stock === 0) {
         outOfStock += 1;
       }
     });
-
   useEffect(() => {
     dispatch(getAdminProduct());
     dispatch(getAllOrders());
@@ -48,7 +42,6 @@ const Dashboard = () => {
     orders.forEach((item) => {
       totalAmount += item.totalPrice;
     });
-
 
   ChartJS.register(
     CategoryScale,
@@ -76,7 +69,6 @@ const Dashboard = () => {
     plugins: {
       legend: true
     },
-    
   }
 
   const doughnutState = {
@@ -90,15 +82,12 @@ const Dashboard = () => {
       },
     ],
   };
-
   return (
     <div className="dashboard">
       <Metadata title="Dashboard - Admin Panel" />
       <Sidebar />
-      
       <div className="dashboardContainer">
       <h2 className="h22">Dashboard</h2>
-
         <div className="dashboardSummary">
           <div>
             <p>
@@ -120,11 +109,9 @@ const Dashboard = () => {
             </Link>
           </div>
         </div>
-
         <div className="lineChart">
           <Line data={lineState} options={options} />
         </div>
-
         <div className="doughnutChart">
           <Doughnut data={doughnutState} options={options} />
         </div>
@@ -132,5 +119,4 @@ const Dashboard = () => {
     </div>
   );
 };
-
 export default Dashboard;

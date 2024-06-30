@@ -20,10 +20,7 @@ import Loader from "../layout/Loader/loader";
 const UpdateUser = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
-  
-
   const { loading, error, user } = useSelector((state) => state.userDetails);
-
   const {
     loading: updateLoading,
     error: updateError,
@@ -33,7 +30,6 @@ const UpdateUser = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
   const [role, setRole] = useState("");
-
   const {id} = useParams();
 
   useEffect(() => {
@@ -48,12 +44,10 @@ const UpdateUser = () => {
       toast.error(error);
       dispatch(clearErrors());
     }
-
     if (updateError) {
       toast.error(updateError);
       dispatch(clearErrors());
     }
-
     if (isUpdated) {
       toast.success("User Updated Successfully");
       navigate("/admin/users");
@@ -63,13 +57,11 @@ const UpdateUser = () => {
 
   const updateUserSubmitHandler = (e) => {
     e.preventDefault();
-
     const myForm = new FormData();
 
     myForm.set("name", name);
     myForm.set("email", email);
     myForm.set("role", role);
-
     dispatch(updateUser(id, myForm));
   };
 
@@ -108,7 +100,6 @@ const UpdateUser = () => {
                   onChange={(e) => setEmail(e.target.value)}
                 />
               </div>
-
               <div>
                 <VerifiedUserIcon />
                 <select value={role} onChange={(e) => setRole(e.target.value)}>
@@ -117,7 +108,6 @@ const UpdateUser = () => {
                   <option value="user">User</option>
                 </select>
               </div>
-
               <button
               className="MuiButtonBase-root MuiButton-root MuiButton-text"
                 id="createProductBtn"
@@ -136,5 +126,4 @@ const UpdateUser = () => {
     </Fragment>
   );
 };
-
 export default UpdateUser;

@@ -16,7 +16,7 @@ const ProductCard = ({ product }) => {
       
       <div>
       <Rating readOnly itemStyles={myStyle} maxWidth={window.innerWidth < 600 ? 20 : 25}
-                                value={product && product.ratings} halfFillMode="svg" /> <span>({product && product.numOfReviews} Reviews)</span>
+        value={product && product.ratings} halfFillMode="svg" /> <span>({product && product.numOfReviews} Reviews)</span>
       </div>
       <span>{`₹${product && product.price}`}</span>
     </Link>

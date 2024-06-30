@@ -8,7 +8,6 @@ import PostAddIcon from '@mui/icons-material/PostAdd';
 import AddIcon from '@mui/icons-material/Add';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ArrowRightIcon from '@mui/icons-material/ArrowRight';
-
 import { SimpleTreeView } from '@mui/x-tree-view/SimpleTreeView';
 import {
   TreeItem2Content,
@@ -23,7 +22,6 @@ import { TreeItem2Icon } from '@mui/x-tree-view/TreeItem2Icon';
 const CustomTreeItemRoot = styled(TreeItem2Root)(({ theme }) => ({
   color: theme.palette.text.secondary,
 }));
-
 const CustomTreeItemContent = styled(TreeItem2Content)(({ theme }) => ({
   marginBottom: theme.spacing(0.3),
   color: theme.palette.text.secondary,

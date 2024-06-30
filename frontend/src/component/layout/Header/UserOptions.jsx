@@ -17,12 +17,9 @@ import {  useDispatch , useSelector } from 'react-redux';
 const UserOptions = ({user}) => {
     const [open, setOpen] = useState(false);
     const navigate = useNavigate();
-    
-
     const {cartItems} =  useSelector((state) => state.cart);
-
     const dispatch = useDispatch();
-    
+
     const options = [
       {icon: <ListAltIcon/>, name: "Orders", func: orders},
       {icon: <PersonIcon/>, name: "Profile", func: account},
@@ -52,8 +49,6 @@ const UserOptions = ({user}) => {
       toast.success("Logout Successfully")
       navigate("/login");
     }
-    
-
   return (
     <Fragment>
         <Backdrop open={open} style={{ zIndex: "10" }} />
@@ -69,7 +64,6 @@ const UserOptions = ({user}) => {
         {options.map((item)=>(
           <SpeedDialAction key={item.name} icon={item.icon}  tooltipTitle={item.name} onClick={item.func} tooltipOpen={window.innerWidth<=600 ? true : false} />
         ))}
-        
         </SpeedDial>
     </Fragment>
   )
