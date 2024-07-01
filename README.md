@@ -1,47 +1,85 @@
-# MERN E-COMMERCE Project
+# Ecommerce - MERN
+Full-Stack Ecommerce with Admin Dashboard & Paytm Payment Gateway.
 
-Hi! My name is **Roushan Singh**
+[Visit Now](https://mern-stack-ecommerce-with-redux.onrender.com/) 🚀
 
-# Prerequisite
+## 🖥️ Tech Stack
+**Frontend:**
 
-1.  Must have basic knowledge of **Node**, **React**, **Express**, **MongoDB** . _I have learned from tutorials on each technology on YouTube, make sure to check it out_. **Links are Below respectively**
-2.  Node - https://youtu.be/BSO9C8Z-YV8
-3.  React - https://youtu.be/99kgUCIMboY
-4.  Express - https://youtu.be/teipbke8c4A\
-5.  MongoDB - https://youtu.be/AYDP1S5BbTo
-6.  RestApi - https://youtu.be/AhCSfuG9Jxw _(optional)_
+![reactjs](https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)&nbsp;
+![react-router](https://img.shields.io/badge/React_Router-CA4245?style=for-the-badge&logo=react-router&logoColor=white)&nbsp;
+![redux](https://img.shields.io/badge/Redux-593D88?style=for-the-badge&logo=redux&logoColor=white)&nbsp;
+![mui](https://img.shields.io/badge/Material--UI-0081CB?style=for-the-badge&logo=material-ui&logoColor=white)&nbsp;
+![chart-js](https://img.shields.io/badge/Chart.js-FF6384?style=for-the-badge&logo=chartdotjs&logoColor=white)&nbsp;
 
-# Install Dependencies
+**Backend:**
 
-**For Backend** - `npm i`
+![nodejs](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)&nbsp;
+![expressjs](https://img.shields.io/badge/Express.js-000000?style=for-the-badge&logo=express&logoColor=white)&nbsp;
+![mongodb](https://img.shields.io/badge/MongoDB-4EA94B?style=for-the-badge&logo=mongodb&logoColor=white)&nbsp;
+![jwt](	https://img.shields.io/badge/JWT-000000?style=for-the-badge&logo=JSON%20web%20tokens&logoColor=white)&nbsp;
 
-**For Frontend** - `cd frontend` ` npm i`
+**Payment Gateway:**
 
-## Env Variables
+![paytm](https://img.shields.io/badge/Paytm-002970?style=for-the-badge&logo=paytm&logoColor=00BAF2)
 
-Make Sure to Create a config.env file in backend/config directory and add appropriate variables in order to use the app.
+**Cloud Storage:** [Cloudinary](https://cloudinary.com/)
 
-**Essential Variables**
-PORT=
-DB_URI =
-STRIPE_API_KEY=
-STRIPE_SECRET_KEY=
-JWT_SECRET=
-JWT_EXPIRE=
-COOKIE_EXPIRE=
-SMPT_SERVICE =
-SMPT_MAIL=
-SMPT_PASSWORD=
-SMPT_HOST=
-SMPT_PORT=
-CLOUDINARY_NAME
-CLOUDINARY_API_KEY
-CLOUDINARY_API_SECRET
-_fill each filed with your info respectively_
+## 🚀 Features
 
-## Author
+**User Account Management**
+- Login/Signup: 🚪 Users can create an account or log in to an existing one.
+- Update Profile/Password: 🔐 Users can update their profile information and change their passwords.
+  
+**Password Management**
+- Reset Password Mail: 📧 Utilizing Sendgrid, users can reset their passwords via email.
+  
+**Shopping Cart**
+- Add/Remove Items: 🛒 Users can add items to their shopping cart or remove them as needed.
+- Update Quantities: 🔢 Quantities of items in the cart can be adjusted.
+  
+  
+**Product Browsing**
+- Pagination: 📚 Products are paginated, with 10 products displayed per page by default.
+- Search: 🔍 Users can search for products.
+- Filters: 🎛️ Products can be filtered based on categories, ratings, and price range.
+  
+**Checkout Process**
+- Shipping Info: 🚚 Shipping information is stored in session storage for ease of checkout.
+- Payment Options: 💳 Users can pay through Paytm visa card gateway for checkout.
+  
+**Order Management**
+- My Orders: 📦 Users can view their order history with various filters.
+- Order Details: ℹ️ Details of all ordered items are accessible.
+  
+**Product Interaction**
+- Review Products: 🌟 Users can review products.
+  
+**Admin Features**
+- Dashboard: 🖥️ Admins have access to a dedicated dashboard.
+- Order Management: 📊 Admins can update order statuses and delete orders.
+- Product Management: 📝 Admins can add/update products.
+- User Management: 👥 Admins can update user data and delete users.
+- Review Management: 📜 Admins can view and delete product reviews.
+- Stock Management: 📉 Product stock is automatically decreased upon shipment.
 
-**Instagram** Click [Here](https://instagram.com/roushansingh3698?igshid=MzMyNGUyNmU2YQ==) **RoushanSingh**
-**YouTube** Click [Here](https://www.youtube.com/channel/UCvEI5ZzcQUubigBvBgvotSg) **@roushansingh8993**
-**LinkedIn** Click [Here](https://www.linkedin.com/in/roushan-singh-645819236?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app) **Roushan Singh**
-**Twitter** Click [Here](https://x.com/Roushan22896940?t=Z53DB6HTRP4gTLYJ_mdZ0A&s=08) **Roushan_Singh**
+## Sneak Peek of Admin Dashboard 🙈 :
+![Capture](https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837052/samples/o842ksqkcmwn0bgagrlc.png)
+
+<table>
+  <tr>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837055/samples/a0mgodgaymzscyemhdan.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837053/samples/vmfkxrsds9dthgbv76kb.png" alt="mockups" /></td>
+  </tr>
+  <tr>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837053/samples/nila7y50ukny32sz8kbr.png" alt="mockup" /></td>
+    <td><img src="https://res.cloudinary.com/ddxwcwxhl/image/upload/v1719837055/samples/ejymvdfsj18qmptiokbo.png" alt="mockups" /></td>
+  </tr>
+</table>
+
+<h2>📬 Contact</h2>
+
+Feel free to reach me through the below handles if you'd like to contact me.
+
+[![linkedin](https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white)](https://www.linkedin.com/in/roushan-singh-645819236/)
+[![instagram](https://img.shields.io/badge/Instagram-E4405F?style=for-the-badge&logo=instagram&logoColor=white)](https://instagram.com/roushansingh3698?igshid=MzMyNGUyNmU2YQ==)
