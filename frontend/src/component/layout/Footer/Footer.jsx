@@ -9,8 +9,8 @@ const Footer = () => {
         <div className="leftFooter">
           <h4>DOWNLOAD OUT AP4</h4>
           <p>Download App for Android and IOS mobile Phone</p>
-          <img src={playStore} alt="playstore" />
-          <img src={appStore} alt="appstore" />
+          <img src={playStore} loading="lazy" alt="playstore" />
+          <img src={appStore} loading="lazy" alt="appstore" />
         </div>
 
         <div className="midFooter">

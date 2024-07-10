@@ -59,7 +59,7 @@ const UserOptions = ({user}) => {
         open={open}
         direction='down'
         className='speedDial'
-        icon={<img className='speedDialIcon' src={user && user.avatar && user.avatar.url ? user.avatar.url : image} alt="Profile" />}
+        icon={<img className='speedDialIcon' src={user && user.avatar && user.avatar.url ? user.avatar.url : image} loading="lazy" alt="Profile" />}
         >
         {options.map((item)=>(
           <SpeedDialAction key={item.name} icon={item.icon}  tooltipTitle={item.name} onClick={item.func} tooltipOpen={window.innerWidth<=600 ? true : false} />

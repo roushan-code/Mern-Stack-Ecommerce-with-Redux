@@ -23,7 +23,7 @@ const Profile = () => {
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
-              {user && user.avatar && <img src={user.avatar.url} alt={user.name} />}
+              {user && user.avatar && <img src={user.avatar.url} loading="lazy" alt={user.name} />}
               <Link to="/me/update">Edit Profile</Link>
             </div>
             <div>

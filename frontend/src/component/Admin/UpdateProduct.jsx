@@ -193,12 +193,12 @@ const UpdateProduct = () => {
             <div id="createProductFormImage">
               {oldImages &&
                 oldImages.map((image, index) => (
-                  <img key={index} src={image.url} alt="Old Product Preview" />
+                  <img key={index} src={image.url} loading="lazy" alt="Old Product Preview" />
                 ))}
             </div>
             <div id="createProductFormImage">
               {imagesPreview.map((image, index) => (
-                <img key={index} src={image} alt="Product Preview" />
+                <img key={index} src={image} loading="lazy" alt="Product Preview" />
               ))}
             </div>
             <button

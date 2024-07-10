@@ -12,7 +12,7 @@ const Sidebar = () => {
     return (
       <div className={`sidebar ${(window.location.pathname === "/admin/dashboard")   ? 'dash-sidebar' : ''}`}>
         <Link to="/">
-          <img src={logo} alt="Ecommerce" />
+          <img src={logo} loading="lazy" alt="Ecommerce" />
         </Link>
         <Link to="/admin/dashboard">
           <p>

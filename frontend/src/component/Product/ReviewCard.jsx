@@ -10,7 +10,7 @@ const ReviewCard = ({ review }) => {
       };
   return (
     <div className="reviewCard">
-      <img src={profilePng} alt="User" />
+      <img src={profilePng} loading="lazy" alt="User" />
       <p>{review.name}</p>
       <Rating readOnly itemStyles={myStyle} maxWidth={ window.innerWidth < 600 ? 20 : 25}
         value={review.rating} halfFillMode="svg"/>

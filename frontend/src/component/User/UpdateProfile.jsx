@@ -105,7 +105,7 @@ const UpdateProfile = () => {
                 </div>
                 <p className="para">Image Size must be less than 1MB <span>*</span></p>
                 <div id="updateProfileImage">
-                  <img src={avatarPreview} alt="Avatar Preview" />
+                  <img src={avatarPreview} loading="lazy" alt="Avatar Preview" />
                   <input
                     type="file"
                     name="avatar"
