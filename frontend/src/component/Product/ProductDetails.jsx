@@ -91,7 +91,7 @@ const ProductDetails = () => {
                                     <img
                                         className='CarouselImage'
                                         src={item.url}
-                                        loading="lazy"
+                                        
                                         key={item.url}
                                         alt={`${i} Slide`} />
                                 ))
